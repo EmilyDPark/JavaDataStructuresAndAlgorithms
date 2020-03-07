@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // ---------- Using created Array class ----------
+        // ---------------------------------------- Using created Array class ----------------------------------------
 
         // Create an object of the Array class
         Array numbers = new Array(3);
@@ -31,13 +31,12 @@ public class Main {
         numbers.printArray();
 
 
-        // Exercises
+        // ---------------------------------------- Exercises ----------------------------------------
 
-        // Array.max()
+        // max method
         System.out.println(numbers.max());
 
-        // Array.intersect
-
+        // intersect method
         // Create a new array to compare
         Array newNums = new Array(5);
         newNums.insert(10);
@@ -50,9 +49,21 @@ public class Main {
 
         numbers.intersect(newNums).printArray();
 
+        // reverse method
+        numbers.reverse();
+        numbers.printArray();
+
+        Array nullArr = new Array(0);
+        nullArr.reverse();
+        nullArr.printArray();
+
+        // insertAt method
+        numbers.insertAt(15, 4);
+        numbers.printArray();
 
 
-//        // ---------- Using java.util.Arrays ----------
+
+//        // ---------------------------------------- Using java.util.Arrays ----------------------------------------
 //        // Declare an array
 //        int[] numberArr = new int[3];
 //        // Initialize the array
@@ -71,7 +82,7 @@ public class Main {
 
 
 
-//        // ---------- Using java.util.ArrayList;
+//        // ---------------------------------------- Using java.util.ArrayList ----------------------------------------
 //        ArrayList<Integer> list = new ArrayList<>();
 //        list.add(10);
 //        list.add(20);
