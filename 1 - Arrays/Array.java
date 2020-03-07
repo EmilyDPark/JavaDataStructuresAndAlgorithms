@@ -11,7 +11,6 @@ public class Array {
     public void insert(int item) {
         // If the array is full, resize it
         if (items.length == count) {
-
             // Create a new array (twice the size)
             int[] newItems = new int[count * 2];
 
@@ -55,6 +54,11 @@ public class Array {
     } // print method
 
     public void printArray() {
+        if (count == 0) {
+            System.out.println("Array is empty.");
+            return;
+        }
+
         System.out.print("[");
         for (int i = 0; i < count - 1; i++)
             System.out.print(items[i] + ", ");
@@ -63,9 +67,9 @@ public class Array {
     } // printArray method
 
 
-    // Exercises
+    // ---------------------------------------- Exercises ----------------------------------------
 
-    // Extend the Array class and add a new method to return the largest number.
+    // 1 - Extend the Array class and add a new method to return the largest number.
     public int max() {
         int max = 0;
         for (int i = 1; i < count; i++)
@@ -75,12 +79,9 @@ public class Array {
         return max;
     } // max method
 
-    // Extend the Array class and add a method to return the common items in this array and another array.
+    // 2 - Extend the Array class and add a method to return the common items in this array and another array.
     public Array intersect(Array otherArr) {
-        // Create a new array
         Array common = new Array(1);
-
-        // for loop goes between both loops to see if there are any matches
         for (int i = 0; i < this.count - 1; i++) {
             for (int j = 0; j < otherArr.count; j++) {
                 if (items[i] == otherArr.items[j]) {
@@ -90,5 +91,48 @@ public class Array {
         }
         return common;
     } // intersect method
+
+    // 3 - Extend the Array class and add a method to reverse the array.
+    //     For example, if the array includes [1, 2, 3, 4], after reversing and printing it, we should see [4, 3, 2, 1].
+    public void reverse() {
+        var temp = 0;
+        for (int i = 0; i < count / 2; i++) {
+            temp = items[i];
+            items[i] = items[count - 1 - i];
+            items[count - 1 - i] = temp;
+        }
+    } // reverse method
+
+    // 4 - Extend the Array class and add a new method to insert an item at given index.
+    public void insertAt(int item, int index) {
+        // Validate the index
+        if (index < 0 || index > count)
+            throw new IllegalArgumentException();
+
+        // If the array is full, resize it
+        if (items.length == count) {
+
+            // Create a new array (twice the size)
+            int[] newItems = new int[count * 2];
+
+            // Copy all the existing items
+            for (int i = 0; i < count; i++)
+                newItems[i] = items[i];
+
+            // Set "items" to this new array
+            items = newItems;
+        }
+
+        // Shift the items to the right to make a hole
+        for (int i = count; i >= index; i--) {
+            items[i + 1] = items[i];
+
+            // Add item at index
+            if (i == index)
+                items[i] = item;
+        }
+
+        count++;
+    } // insertAt method
 
 } // Array class
