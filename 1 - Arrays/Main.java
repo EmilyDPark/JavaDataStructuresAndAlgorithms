@@ -58,7 +58,7 @@ public class Main {
         nullArr.printArray();
 
         // insertAt method
-        numbers.insertAt(15, 4);
+        numbers.insertAt(15, 2);
         numbers.printArray();
 
 
