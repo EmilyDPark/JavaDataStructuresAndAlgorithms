@@ -170,4 +170,60 @@ public class LinkedList {
         System.out.println();
     } // printList method
 
+
+    // ---------------------------------------- Exercises ----------------------------------------
+
+    // 1 - Find the middle of a linked list in one pass.
+    //     If the list has an even number of nodes, there would be two middle nodes.
+    //     (Note: Assume that you don’t know the size of the list ahead of time.)
+    public void printMiddle() {
+        if (isEmpty())
+            throw new IllegalStateException();
+
+        var a = first;
+        var b = first;
+        while (b != last && b.next != last) {
+            a = a.next;
+            b = b.next.next;
+        }
+
+        if (b == last)
+            System.out.println(a.value);
+        else
+            System.out.println(a.value + ", " + a.next.value);
+    } // printMiddle method
+
+    // 2 - Check to se if a linked list has a loop
+    public boolean hasLoop() {
+        var slow = first;
+        var fast = first;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast)
+                return true;
+        }
+        return false;
+    } // hasLoop method
+
+    public static LinkedList createWithLoop() {
+        var list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+
+        // Get a reference to 30
+        var node = list.last;
+
+        list.addLast(40);
+        list.addLast(50);
+
+        // Create the loop
+        list.last.next = node;
+
+        return list;
+    } // createWithLoop method
+
 } // LinkedList class
