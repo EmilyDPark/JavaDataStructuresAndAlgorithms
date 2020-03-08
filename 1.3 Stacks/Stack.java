@@ -28,7 +28,7 @@ public class Stack {
 
     public boolean isEmpty() {
         return count == 0;
-    }
+    } // isEmpty
 
     @Override
     public String toString() {
