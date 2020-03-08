@@ -48,6 +48,16 @@ public class Main {
         // getKthFromTheEnd method
         System.out.println(list.getKthFromTheEnd(1));
 
+
+        // ---------------------------------------- Exercises ----------------------------------------
+
+        // printMiddle method
+        list.printMiddle();
+
+        // hasLoop method
+        var list2 = LinkedList.createWithLoop();
+        System.out.println(list2.hasLoop());
+
     }  // main method
 
 } // Main class
