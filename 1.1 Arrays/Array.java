@@ -92,6 +92,16 @@ public class Array {
         return common;
     } // intersect method
 
+    public Array intersect2(Array other) {
+        var intersection = new Array(count);
+
+        for (int item : items)
+            if (other.indexOf(item) >= 0)
+                intersection.insert(item);
+
+        return intersection;
+    } // intersect2 method
+
     // 3 - Extend the Array class and add a method to reverse the array.
     //     For example, if the array includes [1, 2, 3, 4], after reversing and printing it, we should see [4, 3, 2, 1].
     public void reverse() {
