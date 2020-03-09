@@ -41,5 +41,10 @@ public class Main {
         countingSorter.sort(countingNumbers);
         System.out.println(Arrays.toString(countingNumbers));
 
+        // -------------------- Bucket Sort --------------------
+        int[] bucketNumbers = { 7, 3, 1, 4, 6, 2, 3 };
+        var bucketSorter = new BucketSort();
+        bucketSorter.sort(bucketNumbers, 3);
+        System.out.println(Arrays.toString(bucketNumbers));
     }
 }
