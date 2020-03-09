@@ -3,7 +3,6 @@ package com.company;
 import java.util.Arrays;
 
 public class Main {
-
     public static void main(String[] args) {
 
         // -------------------- Bubble Sort --------------------
@@ -29,5 +28,12 @@ public class Main {
         var mergeSorter = new MergeSort();
         mergeSorter.sort(mergeNumbers);
         System.out.println(Arrays.toString(mergeNumbers)); // [1, 2, 3, 3, 4, 6, 7]
+
+        // -------------------- Quick Sort --------------------
+        int[] quickNumbers = { 7, 3, 1, 4, 6, 2, 3 };
+        var quickSorter = new QuickSort();
+        quickSorter.sort(quickNumbers);
+        System.out.println(Arrays.toString(quickNumbers));
+
     }
 }
